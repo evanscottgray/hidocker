@@ -3,12 +3,16 @@ hidocker
 
 Hipache + Redis inside of Docker
 
-# Deploying
-Build the hidocker container.
+# Getting hidocker
+Build the hidocker container from source.
 ```shell
 git clone https://github.com/evanscottgray/hidocker && cd hidocker && docker build --rm=true --tag="evanscottgray/hidocker" .`
 ```
-
+Or pull from the Docker CDN.
+```shell
+docker pull evanscottgray/hidocker
+```
+# Deploying
 Start the hidocker container.
 ```shell
 docker run -d -p 80:80 -p 6379:6379 evanscottgray/hidocker
