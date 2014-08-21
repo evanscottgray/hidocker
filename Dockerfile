@@ -15,8 +15,8 @@ ADD	./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD	./config.json /usr/local/lib/node_modules/hipache/config/config.json
 
 # Uncomment and fill in where appropriate.
-# ADD	./something.com.crt /root/something.com.crt
-# ADD	./something.com.key /root/something.com.key
+# ADD	./example.com.crt /root/example.com.crt
+# ADD	./example.com.key /root/example.com.key
 
-EXPOSE	[ 80 , 443 , 6379 ]
+EXPOSE 80 443 6379
 CMD	["supervisord", "-n"]
