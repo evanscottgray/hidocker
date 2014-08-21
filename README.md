@@ -16,15 +16,15 @@ docker run -d -p 80:80 -p 6379:6379 evanscottgray/hidocker
 
 Push a frontend with redis-cli.
 ```shell
-redis-cli -h 127.0.0.1 -p 49159 rpush frontend:app1.website.com app1
-redis-cli -h 127.0.0.1 -p 49159 rpush frontend:app1.website.com  http://$ip_of_app_1_node_1:$port_of_app_1_node_1
+redis-cli -h 127.0.0.1 -p 6379 rpush frontend:app1.website.com app1
+redis-cli -h 127.0.0.1 -p 6379 rpush frontend:app1.website.com  http://$ip_of_app_1_node_1:$port_of_app_1_node_1
 ```
 
 Keep in mind that Hipache acts as a Load Balancer as well as a Reverse Proxy, so you can add multiple nodes to one frontend.
 ```
-redis-cli -h 127.0.0.1 -p 49159 rpush frontend:app1.website.com  http://$ip_of_app_1_node_2:$port_of_app_1_node_2
-redis-cli -h 127.0.0.1 -p 49159 rpush frontend:app1.website.com  http://$ip_of_app_1_node_3:$port_of_app_1_node_3
-redis-cli -h 127.0.0.1 -p 49159 rpush frontend:app1.website.com  http://$ip_of_app_1_node_4:$port_of_app_1_node_4
+redis-cli -h 127.0.0.1 -p 6379 rpush frontend:app1.website.com  http://$ip_of_app_1_node_2:$port_of_app_1_node_2
+redis-cli -h 127.0.0.1 -p 6379 rpush frontend:app1.website.com  http://$ip_of_app_1_node_3:$port_of_app_1_node_3
+redis-cli -h 127.0.0.1 -p 6379 rpush frontend:app1.website.com  http://$ip_of_app_1_node_4:$port_of_app_1_node_4
 ```
 
 # DNS Stuff
