@@ -4,9 +4,10 @@ hidocker
 Hipache + Redis inside of Docker
 
 # Getting hidocker
-Build the hidocker container from source.
+Build the hidocker container from source. This is useful if you want to add SSL support, be sure to modify the Dockerfile where appropriate!
 ```shell
-git clone https://github.com/evanscottgray/hidocker && cd hidocker && docker build --rm=true --tag="evanscottgray/hidocker" .`
+git clone https://github.com/evanscottgray/hidocker && cd hidocker 
+docker build --rm=true --tag="hidocker" .
 ```
 Or pull from the Docker CDN.
 ```shell
