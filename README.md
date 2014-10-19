@@ -78,11 +78,14 @@ Here is a sample configuration for adding SSL support, you'll obviously have to 
 
 To generate your own SSL key/certificate, you can use the following sequence of commands replacing arguments where appropriate:
 ```shell
-openssl req -new -key website.com.key -out website.com.csr
-openssl genrsa -des3 -passout pass:x -out website.com.pass.key 2048
-openssl rsa -passin pass:x -in website.com.pass.key -out website.com.key
-openssl req -new -key website.com.key -out website.com.csr
-openssl x509 -req -days 365 -in website.com.csr -signkey website.com.key -out website.com.crt
+openssl genrsa -des3 -passout pass:x -out wow.test.com.pass.key 2048
+openssl rsa -passin pass:x -in wow.test.com.pass.key -out wow.test.com.key
+```
+```shell
+openssl req -new -key wow.test.com.key -out wow.test.com.csr
+```
+```shell
+openssl x509 -req -days 365 -in wow.test.com.csr -signkey wow.test.com.key -out wow.test.com.crt
 ```
 You'll then need to add these to the container by modifying the Dockerfile.
 
