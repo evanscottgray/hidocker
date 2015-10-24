@@ -1,14 +1,13 @@
 # evanscottgray/hidocker
 #
-# VERSION               0.0.1
+# VERSION               0.0.2
 
 from ubuntu
 MAINTAINER Evan Gray <evan@evanscottgray.com>
 
 RUN	echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN	apt-get -y update
-RUN	apt-get -y install wget git redis-server supervisor
-run	wget -O - http://nodejs.org/dist/v0.8.23/node-v0.8.23-linux-x64.tar.gz | tar -C /usr/local/ --strip-components=1 -zxv
+RUN	apt-get -y update && apt-get -y install wget git redis-server supervisor
+RUN	wget -O - http://nodejs.org/dist/v0.8.23/node-v0.8.23-linux-x64.tar.gz | tar -C /usr/local/ --strip-components=1 -zxv
 RUN	npm install hipache -g
 RUN	mkdir -p /var/log/supervisor
 ADD	./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
